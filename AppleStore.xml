@@ -1,0 +1,114 @@
+
+<!--  Our one element xml document, describing one instance of a Library object -->
+
+<myapplestores>      <!-- the one libraryobject conatining alle the info -->
+
+	<name>Apple Store Brent Cross</name>            <!--  here follow all attributes of the mylibrary object -->
+	<city>London</city>
+	<street>Lower East Mall</street>
+	<housenumber>1</housenumber>
+	<postcode>NW4 3FP</postcode>	
+	<phonenumber>020 3126 9200</phonenumber>
+	<openinghours>10am - 8pm</openinghours>
+	
+	<name>Apple Store Covent Garden</name>            <!--  here follow all attributes of the mylibrary object -->
+	<city>London</city>
+	<street>The Piazza</street>
+	<housenumber>1-7</housenumber>
+	<postcode>WC2E 8HB</postcode>	
+	<phonenumber>020 7447 1400</phonenumber>
+	<openinghours>10am - 8pm</openinghours>
+	
+	<name>Apple Store Regent Street</name>            <!--  here follow all attributes of the mylibrary object -->
+	<city>London</city>
+	<street>Regent Street</street>
+	<housenumber>235</housenumber>
+	<postcode>W1B 2EL</postcode>	
+	<phonenumber>020 7153 9000</phonenumber>
+	<openinghours>10am - 8pm</openinghours>
+	
+	<name>Apple Store Stratford Westfield</name>            <!--  here follow all attributes of the mylibrary object -->
+	<city>London</city>
+	<street>Westfield Stratford City</street>
+	<housenumber>The Arcade</housenumber>
+	<postcode>E20 1EQ</postcode>	
+	<phonenumber>020 8277 2200</phonenumber>
+	<openinghours>10am - 8pm</openinghours>
+	
+	<name>Apple Store White City Westfield</name>            <!--  here follow all attributes of the mylibrary object -->
+	<city>London</city>
+	<street>Westfield White City</street>
+	<housenumber>n/a</housenumber>
+	<postcode>W12 7GF</postcode>	
+	<phonenumber>020 8433 4600</phonenumber>
+	<openinghours>10am - 8pm</openinghours>
+	
+	<Product>                                       <!-- An Instance of a book -->
+		<producttype>Laptop</producttype>              <!-- And its attributes -->
+		<productname>MacBook Pro 15"</productname>
+		<serialnumber>12345Sn</serialnumber>
+		<location>Downstairs back left table</location>
+		<availability>true</availability>
+	</Product>
+	<Product>                                       <!-- An Instance of a book -->
+		<producttype>Phone</producttype>              <!-- And its attributes -->
+		<productname>iPhone 6"</productname>
+		<serialnumber>383329nd</serialnumber>
+		<location>Upstairs back right table</location>
+		<availability>true</availability>
+	</Product>
+	<Product>                                       <!-- An Instance of a book -->
+		<producttype>Tablet</producttype>              <!-- And its attributes -->
+		<productname>iPad Air</productname>
+		<serialnumber>23322od</serialnumber>
+		<location>Downstairs front right table</location>
+		<availability>false</availability>
+	</Product>
+	
+	<Services>
+		<nameofservice>AppleCare - Macbook Pro</nameofservice>
+		<available>true</available>
+		<pricerange>£200-£500 per year</pricerange>
+	</Services>
+	
+	<Services>
+		<nameofservice>Business at the Apple Store Workshop</nameofservice>
+		<available>true</available>
+		<pricerange>Free</pricerange>
+	</Services>
+	
+	<Services>
+		<nameofservice>Apple kids Summer Camp</nameofservice>
+		<available>true</available>
+		<pricerange>Free</pricerange>
+	</Services>
+	
+	<Discounts>
+		<discounttype>Student</discounttype>
+		<discountpercentage>15%</discountpercentage>
+		<authorised>false</authorised>
+	</Discounts>
+	
+	<Discounts>
+		<discounttype>Staff</discounttype>
+		<discountpercentage>20%</discountpercentage>
+		<authorised>false</authorised>
+	</Discounts>
+	
+	<GeniusAppt>
+		<reason>AppleTV not turning on</reason>
+		<appdate>18/11/2015</appdate>
+		<apptime>15:08</apptime>
+	</GeniusAppt>
+	<GeniusAppt>
+		<reason>iPhone water damage</reason>
+		<appdate>05/12/2015</appdate>
+		<apptime>10:30</apptime>
+	</GeniusAppt>
+	<GeniusAppt>
+		<reason>Mac Screen flickering</reason>
+		<appdate>20/01/2016</appdate>
+		<apptime>13:00</apptime>
+	</GeniusAppt>
+
+</myapplestore>     <!-- closing the one libraryobject conatining alle the info -->
