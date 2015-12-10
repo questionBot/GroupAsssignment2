@@ -37,6 +37,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  * 
  */
+
+//SHOULD ADD DETAILS OF CUSTOMER TO GENIUS BAR APPOINTMENT !! <<<<<<<<<<<<
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GeniusAppt", propOrder = {
     "problem",
