@@ -23,7 +23,7 @@ public class Reasoner {
 	// Path to YOUR-PROJECTROOT-IN-WORKSPACE\xjc.bat yourschemaname.xsd -d src
 	// -p yourclasspackagename
 
-	public AppleStore theapplestores; //This is a candidate for a name change
+	public AppleStore appleStoresLdn; //This is a candidate for a name change
 
 	public SimpleGUI Myface;
 
@@ -116,15 +116,15 @@ public class Reasoner {
 		try {
 			FileInputStream readthatfile = new FileInputStream(xmlfiletoload); // initiate input stream
 
-			theapplestores = xmlhandler.loadXML(readthatfile);
+			appleStoresLdn = xmlhandler.loadXML(readthatfile);
 
 			// Fill the Lists with the objects data just generated from the xml
 
-			theProductList = theapplestores.getProduct();  		//This is a candidate for a name change
-			theServiceList = theapplestores.getServices(); 	//This is a candidate for a name change
-			theDiscountList = theapplestores.getDiscounts(); 	//This is a candidate for a name change
-			theGeniusApptList = theapplestores.getGeniusAppt(); 	//This is a candidate for a name change
-			theAppleStoreList.add(theapplestores);             // force it to be a List, //This is a candidate for a name change
+			theProductList = appleStoresLdn.getProduct();  		//This is a candidate for a name change
+			theServiceList = appleStoresLdn.getServices(); 	//This is a candidate for a name change
+			theDiscountList = appleStoresLdn.getDiscounts(); 	//This is a candidate for a name change
+			theGeniusApptList = appleStoresLdn.getGeniusAppt(); 	//This is a candidate for a name change
+			theAppleStoreList.add(appleStoresLdn);             // force it to be a List, //This is a candidate for a name change
 
 			System.out.println("List reading");
 		}
@@ -675,7 +675,7 @@ public class Reasoner {
 			if (theRecentThing.get(0).getClass().getSimpleName()    
 					.toLowerCase().equals("Apple Store")) {                  //This is a candidate for a name change
 
-				location = (theapplestores.getCity() + " " + theapplestores.getStreet() + theapplestores   //This is a candidate for a name change
+				location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn   //This is a candidate for a name change
 						.getHousenumber());                                           //This is a candidate for a name change
 			}
 
@@ -758,7 +758,7 @@ public class Reasoner {
 
 			if (thelist == theAppleStoreList) {                                                  //This is a candidate for a name change
 
-				location = (theapplestores.getCity() + " " + theapplestores.getStreet() + theapplestores  //This is a candidate for a name change
+				location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn  //This is a candidate for a name change
 						.getHousenumber());                                                   //This is a candidate for a name change
 			}
 		}

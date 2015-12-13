@@ -1,7 +1,7 @@
 
 <!--  Our one element xml document, describing one instance of a Library object -->
 
-<myapplestores>      <!-- the one libraryobject conatining alle the info -->
+<appleStoresLdn>      <!-- the one libraryobject conatining alle the info -->
 
 	<name>Apple Store Brent Cross</name>            <!--  here follow all attributes of the mylibrary object -->
 	<city>London</city>
@@ -111,4 +111,4 @@
 		<apptime>13:00</apptime>
 	</GeniusAppt>
 
-</myapplestore>     <!-- closing the one libraryobject conatining alle the info -->
+</appleStoresLdn>     <!-- closing the one libraryobject conatining alle the info -->
