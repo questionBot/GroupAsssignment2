@@ -618,7 +618,7 @@ public class Reasoner {
 					|| input.equals(curlend.getAppdate())){ //This is a candidate for a name change
 
 					counter = i;
-					yesorno.set(0, "Yes we have such an Appointment");            //This is a candidate for a name change
+					yesorno.set(0, "This appointment is taken.");            //This is a candidate for a name change
 					yesorno.add(counter.toString());
 					i = thelist.size() + 1;
 				}
@@ -700,14 +700,14 @@ public class Reasoner {
 
 				for (int i = 0; i < thelist.size(); i++) {
 
-					Product curbook = (Product) thelist.get(i);         //This is a candidate for a name change
+					Product curproduct = (Product) thelist.get(i);         //This is a candidate for a name change
 
-					if (input.contains(curbook.getProductname().toLowerCase())            //This is a candidate for a name change
-							|| input.contains(curbook.getSerialnumber().toLowerCase())      //This is a candidate for a name change
-							|| input.contains(curbook.getProducttype().toLowerCase())) {  //This is a candidate for a name change
+					if (input.contains(curproduct.getProductname().toLowerCase())            //This is a candidate for a name change
+							|| input.contains(curproduct.getSerialnumber().toLowerCase())      //This is a candidate for a name change
+							|| input.contains(curproduct.getProducttype().toLowerCase())) {  //This is a candidate for a name change
 
 						counter = i;
-						location = (curbook.getLocation() + " ");
+						location = (curproduct.getLocation() + " ");
 						Currentindex = counter;
 						theRecentThing.clear(); 									// Clear it before adding (changing) theRecentThing
 						classtype = theProductList;                                    //This is a candidate for a name change
@@ -726,11 +726,11 @@ public class Reasoner {
 
 				for (int i = 0; i < thelist.size(); i++) {
 
-					Services curmember = (Services) thelist.get(i);         				  //This is a candidate for a name change
+					Services curservice = (Services) thelist.get(i);         				  //This is a candidate for a name change
 
-					if (input.contains(curmember.getNameofservice().toLowerCase())              //This is a candidate for a name change
-							|| input.contains(curmember.getPriceRange().toLowerCase())      //This is a candidate for a name change
-							|| input.equals(curmember.isAvailable())) {   //This is a candidate for a name change
+					if (input.contains(curservice.getNameofservice().toLowerCase())              //This is a candidate for a name change
+							|| input.contains(curservice.getPriceRange().toLowerCase())      //This is a candidate for a name change
+							|| input.equals(curservice.isAvailable())) {   //This is a candidate for a name change
 
 						counter = i;
 						//location = (curmember.getCity() + " ");    <<<<< needs modifying
@@ -765,10 +765,34 @@ public class Reasoner {
 				}
 			}
 
-			if (thelist == theAppleStoreList) {                                                  //This is a candidate for a name change
+			if (thelist == theAppleStoreList) {   //This is a candidate for a name change
+				
+				
+				int counter = 0;
 
-				location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn  //This is a candidate for a name change
-						.getHousenumber());                                                   //This is a candidate for a name change
+				for (int i = 0; i < thelist.size(); i++) {
+
+					AppleStore curstore = (AppleStore) thelist.get(i);         //This is a candidate for a name change
+
+					if (input.contains(curstore.getName().toLowerCase())            //This is a candidate for a name change
+							|| input.contains(curstore.getStreet().toLowerCase())      //This is a candidate for a name change
+							|| input.contains(curstore.getPostcode().toLowerCase())) {  //This is a candidate for a name change
+
+						counter = i;
+						location = (curstore.getHousenumber()+" "+ curstore.getStreet()+" " +
+								curstore.getCity()+" " +curstore.getPostcode() +" ");
+						Currentindex = counter;
+						theRecentThing.clear(); 									// Clear it before adding (changing) theRecentThing
+						classtype = theAppleStoreList;                                    //This is a candidate for a name change
+						theRecentThing.add(classtype.get(Currentindex));
+						i = thelist.size() + 1; 									// force break
+					}
+				}
+			
+
+						//>>>>>>CHANGED - NOT TESTED<<<<<<
+				//location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn  //This is a candidate for a name change
+				//		.getHousenumber());                                                   //This is a candidate for a name change
 			}
 		}
 
@@ -789,7 +813,7 @@ public class Reasoner {
 
 		String answer = "";
 
-		System.out.println("Book List = " + theProductList.size());  //This is a candidate for a name change
+		System.out.println("Product List = " + theProductList.size());  //This is a candidate for a name change
 
 		for (int i = 0; i < theProductList.size(); i++) {   // check each book in the List, //This is a candidate for a name change
 
