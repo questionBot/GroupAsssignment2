@@ -57,7 +57,8 @@ import javax.xml.bind.annotation.XmlType;
     "product",
     "services",
     "discounts",
-    "geniusAppt"
+    "geniusAppt",
+    "customer"
 })
 public class AppleStore {
 

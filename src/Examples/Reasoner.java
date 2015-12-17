@@ -798,8 +798,8 @@ public class Reasoner {
 			
 
 						//>>>>>>CHANGED - NOT TESTED<<<<<<
-				//location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn  //This is a candidate for a name change
-				//		.getHousenumber());                                                   //This is a candidate for a name change
+				location = (appleStoresLdn.getCity() + " " + appleStoresLdn.getStreet() + appleStoresLdn  //This is a candidate for a name change
+						.getHousenumber());                                                   //This is a candidate for a name change
 			}
 		}
 
