@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="Services" type="{}Services" maxOccurs="unbounded"/>
  *         &lt;element name="Discounts" type="{}Discounts" maxOccurs="unbounded"/>
  *         &lt;element name="GeniusAppt" type="{}GeniusAppt" maxOccurs="unbounded"/>
+ *         &lt;element name="Customer" type="{}Customer" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -80,6 +81,8 @@ public class AppleStore {
     protected List<Discounts> discounts;
     @XmlElement(name = "GeniusAppt", required = true)
     protected List<GeniusAppt> geniusAppt;
+    @XmlElement(name = "Customer", required = true)
+    protected List<Customer> customer;
 
     /**
      * Gets the value of the name property.
@@ -339,6 +342,35 @@ public class AppleStore {
             geniusAppt = new ArrayList<GeniusAppt>();
         }
         return this.geniusAppt;
+    }
+    
+    /**
+     * Gets the value of the customer property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the customer property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCustomer().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Customer }
+     * 
+     * 
+     */
+    public List<Customer> getCustomer() {
+        if (customer == null) {
+        	customer = new ArrayList<Customer>();
+        }
+        return this.customer;
     }
 
 }

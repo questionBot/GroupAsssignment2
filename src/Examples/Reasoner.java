@@ -37,6 +37,7 @@ public class Reasoner {
 	public List theDiscountList = new ArrayList(); //This is a candidate for a name change
 	public List theGeniusApptList = new ArrayList(); //This is a candidate for a name change
 	public List theRecentThing = new ArrayList();  // <<<<<<< CHECK!!!
+	public List theCustomerList = new ArrayList();
 
 	// Gazetteers to store synonyms for the domain entities names
 
@@ -46,6 +47,7 @@ public class Reasoner {
 	public Vector<String> discountsyn = new Vector<String>();  //This is a candidate for a name change
 	public Vector<String> geniusapptsyn = new Vector<String>();  //This is a candidate for a name change
 	public Vector<String> recentobjectsyn = new Vector<String>(); // <<<<<<< CHECK!!!
+	public Vector<String> customersyn = new Vector<String>();
 
 	public String questiontype = "";         // questiontype selects method to use in a query
 	public List classtype = new ArrayList(); // classtype selects which class list to query
@@ -118,6 +120,9 @@ public class Reasoner {
 		recentobjectsyn.add(" him");
 		recentobjectsyn.add(" her");	// spaces to prevent collision with "wHERe"	
 		recentobjectsyn.add(" it");
+		
+		customersyn.add("customer");
+		customersyn.add("my appointment");
 
 		try {
 			FileInputStream readthatfile = new FileInputStream(xmlfiletoload); // initiate input stream
@@ -130,8 +135,10 @@ public class Reasoner {
 			theServiceList = appleStoresLdn.getServices(); 	//This is a candidate for a name change
 			theDiscountList = appleStoresLdn.getDiscounts(); 	//This is a candidate for a name change
 			theGeniusApptList = appleStoresLdn.getGeniusAppt(); 	//This is a candidate for a name change
+			theCustomerList = appleStoresLdn.getCustomer();
 			theAppleStoreList.add(appleStoresLdn);             // force it to be a List, //This is a candidate for a name change
-
+			
+			
 			System.out.println("List reading");
 		}
 

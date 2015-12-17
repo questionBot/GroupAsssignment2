@@ -79,6 +79,14 @@ public class ObjectFactory {
     public Discounts createDiscounts() {
         return new Discounts();
     }
+    
+    /**
+     * Create an instance of {@link Customer }
+     * 
+     */
+    public Customer createCustomer() {
+        return new Customer();
+    }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AppleStore }{@code >}}
