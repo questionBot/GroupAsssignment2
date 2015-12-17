@@ -3,15 +3,17 @@ package Examples;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import Examples.AppleStore;
 import Examples.Product;
 import Examples.Services;
 import Examples.Discounts;
 import Examples.GeniusAppt;
-
 import Examples.SimpleGUI;
 
 public class Reasoner {
@@ -79,7 +81,8 @@ public class Reasoner {
 		applestoresyn.add("apple shop");		//This is a candidate for a name change
 		applestoresyn.add("shop with apple products");		//This is a candidate for a name change
 
-		productsyn.add("product");    //All of the following is a candidate for a name change
+		productsyn.add("products"); 
+		productsyn.add("product");//All of the following is a candidate for a name change
 		productsyn.add("computer");
 		productsyn.add("ipad");
 		productsyn.add("ipod");
@@ -105,7 +108,10 @@ public class Reasoner {
 		geniusapptsyn.add("appointment");   //All of the following is a candidate for a name change
 		geniusapptsyn.add("broken");       
 		geniusapptsyn.add("fix");   
-		geniusapptsyn.add("help");     
+		geniusapptsyn.add("help");
+		geniusapptsyn.add("genius appointment");
+		geniusapptsyn.add("geniusapt");
+		
 
 		recentobjectsyn.add(" this");   //All of the following is a candidate for a name change
 		recentobjectsyn.add(" that");
@@ -247,7 +253,7 @@ public class Reasoner {
 				input = input.replace(geniusapptsyn.get(x), "<b>"+geniusapptsyn.get(x)+"</b>");
 				
 				subjectcounter = 1;	
-				System.out.println("Class type Lending recognised.");
+				System.out.println("Class type Genius Appointment recognised.");
 			}
 		}
 		
@@ -377,16 +383,18 @@ public class Reasoner {
 	/**
 	 * This needs editing - our code can look for Appointment Slots - not Products - may need to create a 
 	 * Products in Store Class? E.G. available products within the apple store class.
-	 * 
-	 * 
-	public String BookAvailable(List thelist, String input) {
+	 *    CHANGING TO APPOINTMENT AVAILABLE
+	 */
+	public String ApptAvailable(List thelist, String input) {
 
 		boolean available =true;
 		String answer ="";
 		Product curbook = new Product();
+		GeniusAppt curAppt = new GeniusAppt();
 		String productname="";
+		XMLGregorianCalendar appDate = null;
 
-		if (thelist == theProductList) {                      //This is a candidate for a name change
+		if (thelist == theGeniusApptList) {                      //This is a candidate for a name change
 
 			int counter = 0;
 
@@ -394,23 +402,22 @@ public class Reasoner {
 
 			for (int i = 0; i < thelist.size(); i++) {
 
-				curbook = (Product) thelist.get(i);         //This is a candidate for a name change
+				curAppt = (GeniusAppt) thelist.get(i);         //This is a candidate for a name change
 
-				if (input.contains(curbook.getProductname().toLowerCase())            //This is a candidate for a name change
-						|| input.contains(curbook.getProducttype().toLowerCase())      //This is a candidate for a name change
-						|| input.contains(curbook.getSerialnumber().toLowerCase())) {  //This is a candidate for a name change
+				if (input.equals(curAppt.getAppdate())            //This is a candidate for a name change
+						|| input.equals(curAppt.getApptime().toLowerCase())) {  //This is a candidate for a name change
 
 					counter = i;
 
 					Currentindex = counter;
 					theRecentThing.clear(); 									//Clear it before adding (changing) the
-					classtype = theProductList;                                    //This is a candidate for a name change
+					classtype = theGeniusApptList;                                    //This is a candidate for a name change
 					theRecentThing.add(classtype.get(Currentindex));
-					productname=curbook.getProductname();
+					appDate=curAppt.getAppdate();
 										
-					if (input.contains(curbook.getProductname().toLowerCase())){input = input.replace(curbook.getProductname().toLowerCase(), "<b>"+curbook.getProductname().toLowerCase()+"</b>");}          
-					if (input.contains(curbook.getProducttype().toLowerCase())) {input = input.replace(curbook.getProducttype().toLowerCase(), "<b>"+curbook.getProducttype().toLowerCase()+"</b>");}     
-					if (input.contains(curbook.getSerialnumber().toLowerCase())){input = input.replace(curbook.getSerialnumber().toLowerCase(), "<b>"+curbook.getSerialnumber().toLowerCase()+"</b>");}
+					if (input.contains(curAppt.getProblem().toLowerCase())){input = input.replace(curAppt.getProblem().toLowerCase(), "<b>"+curAppt.getProblem().toLowerCase()+"</b>");}          
+					if (input.equals(curAppt.getAppdate())) {input = input.replace(curAppt.getAppdate().toString().toLowerCase(), "<b>"+curAppt.getAppdate().toString().toLowerCase()+"</b>");}     
+					if (input.contains(curAppt.getApptime().toLowerCase())){input = input.replace(curAppt.getApptime().toLowerCase(), "<b>"+curAppt.getApptime().toLowerCase()+"</b>");}
 										
 					i = thelist.size() + 1; 									// force break
 				}
@@ -424,8 +431,8 @@ public class Reasoner {
 			if (theRecentThing.get(0).getClass().getSimpleName()
 					.toLowerCase().equals("book")) {                  //This is a candidate for a name change
 
-				curbook = (Product) theRecentThing.get(0);               //This is a candidate for a name change		
-				productname=curbook.getProductname();
+				curAppt = (GeniusAppt) theRecentThing.get(0);               //This is a candidate for a name change		
+				appDate=curAppt.getAppdate();
 			}
 		}
 
@@ -437,9 +444,10 @@ public class Reasoner {
 
 			// If there is a lending with the books ISBN, the book is not available
 
-			if ( curbook.getSerialnumber().toLowerCase().equals(curlend.getSerialnumber().toLowerCase())) {           //This is a candidate for a name change
+			if ( curAppt.getAppdate().equals(curlend.getAppdate()) &&
+					curAppt.getApptime().contains(curlend.getApptime())) {           //This is a candidate for a name change
 
-				input = input.replace(curlend.getSerialnumber().toLowerCase(), "<b>"+curlend.getSerialnumber().toLowerCase()+"</b>");
+				input = input.replace(curlend.getAppdate().toString(), "<b>"+curlend.getAppdate().toString()+"</b>");
 				
 				available=false;
 				i = thelist.size() + 1; 									// force break
@@ -447,16 +455,16 @@ public class Reasoner {
 		}
 
 		if(available){
-			answer="can lend the book.";
+			answer="This appointment is available.";
 		}
 		else{ 
-			answer="cannot lend the book as someone else has lent it at the moment.";
+			answer="There are no slots available for this time.";
 		}
 
 		URL = "http://wordnetweb.princeton.edu/perl/webwn?o2=&o0=1&o8=1&o1=1&o7=&o5=&o9=&o6=&o3=&o4=&s="
 				+ classtype.get(0).getClass().getSimpleName().toLowerCase();
 		URL2 = "http://en.wikipedia.org/wiki/"
-				+ booktitle;
+				+ curAppt.getProblem();
 		System.out.println("URL = "+URL);
 		tooltipstring = readwebsite(URL);
 		String html = "<html>" + tooltipstring + "</html>";
@@ -466,7 +474,8 @@ public class Reasoner {
 		return(answer);
 
 	}
-	**/
+	
+	//end here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NEEDS TO BE TESTED
 
 	// Answer a question of the "How many ...." kind 
 	
